@@ -1,0 +1,49 @@
+:host {
+  width: 250px;
+}
+
+.drawer-container {
+  transition      : margin-left 0.3s;
+  width           : 250px;
+  height          : 100vh;
+  background-color: #ffff;
+
+  .mat-drawer {
+    width: 250px;
+    /* ou o tamanho desejado para o menu */
+  }
+
+  .mat-drawer-content {
+    margin-left: 0;
+    transition : margin-left 0.3s;
+  }
+
+  &.drawer-expanded {
+    .mat-drawer {
+      width: 250px;
+      background-color: #fbfbfb;
+    }
+
+    .mat-drawer-content {
+      margin-left: 250px;
+    }
+  }
+
+  .mat-drawer-content {
+    margin-left: 0;
+    transition: margin-left 0.3s;
+
+    &.drawer-expanded {
+      margin-left: 250px; /* Largura do menu quando expandido */
+      padding-left: 350px; /* Adicione um padding para deslocar o conteúdo */
+    }
+  }
+}
+
+h3 {
+  color: var(--bs-gray);
+}
+
+a {
+  cursor: pointer;
+}

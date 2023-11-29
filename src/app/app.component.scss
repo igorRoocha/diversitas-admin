@@ -1,0 +1,44 @@
+.main-content {
+  transition: margin-left 0.3s;
+  margin-top: 0;
+}
+
+/* Estilos para o menu expandido */
+.expanded {
+  margin-left: 250px; /* Ajuste conforme o tamanho do seu menu expandido */
+}
+
+/* Estilos para o conteúdo */
+.main-content {
+  &.expanded {
+    margin-left: 250px; /* Ajuste conforme o tamanho do seu menu expandido */
+    margin-top: 0;
+    padding-left: 20px; /* Adicione um espaçamento à esquerda para afastar o conteúdo do menu */
+  }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 0px auto;
+  grid-template-rows: auto;
+  grid-template-areas: "menu content";
+  height: 100vh; /* Ocupa a altura total da viewport */
+}
+
+.app-navbar {
+  grid-area: navbar;
+}
+
+.app-menu {
+  grid-area: menu;
+}
+
+.main-content {
+  grid-area: content;
+  transition: margin-left 0.3s;
+  z-index: 1;
+}
+
+.expanded {
+  margin-left: 0px;
+}
