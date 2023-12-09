@@ -16,6 +16,8 @@ import { ProductRoutingModule } from '../product/product-routing.module';
 import { ProductChangeComponent } from './product-change/product-change.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     MatTableModule,
     MatTabsModule,
     MatChipsModule,
+    MatGridListModule,
+    MatRadioModule,
     ReactiveFormsModule,
     MatCheckboxModule, 
     ProductRoutingModule

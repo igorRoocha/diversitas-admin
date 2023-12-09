@@ -14,6 +14,33 @@ table {
   margin-bottom: 48px;
 }
 
-.example-chip-list {
-  width: 100%;
+.product-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px; /* Ajuste conforme necessário */
+  height: 200px; /* Ajuste conforme necessário */
+  background-color: #e0e0e0; /* Cor de fundo, ajuste conforme necessário */
+  border-radius: 50%; /* Deixa a div redonda */
+  overflow: hidden; /* Garante que a imagem redonda não ultrapasse a borda */
 }
+
+.product-icon {
+  position: absolute;
+  top: 50%; /* Centraliza verticalmente */
+  left: 50%; /* Centraliza horizontalmente */
+  transform: translate(-50%, -50%); /* Ajusta o ícone para o centro */
+  color: #757575; /* Cor do ícone, ajuste conforme necessário */
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  align-items: flex-start;
+}
+
+.radio-button {
+  margin: 5px;
+}
+

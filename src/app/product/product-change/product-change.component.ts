@@ -80,6 +80,12 @@ export class ProductChangeComponent implements AfterViewInit {
   @ViewChild('fruitInput')
   fruitInput!: ElementRef<HTMLInputElement>;
 
+  favoriteSeason: string = "";
+  seasons: string[] = [
+    'Ativar este produto para ser exibido na minha loja', 
+    'Desativar este produto para não ser exibido na minha loja'
+  ];
+
 
   constructor(private cdr: ChangeDetectorRef) {
     this.filteredFruits = this.fruitCtrl.valueChanges.pipe(
