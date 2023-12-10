@@ -1,5 +1,5 @@
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatChipInputEvent } from '@angular/material/chips';
@@ -8,6 +8,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { TOTAL_TAX } from 'src/app/common/const/tax.const';
+import { ScreenService } from 'src/app/common/services/screen-service/screen.service';
 import { UtilsCalculator } from 'src/app/common/utils/utils-calculator';
 import { UtilsNumber } from 'src/app/common/utils/utils-number';
 
@@ -50,11 +51,9 @@ export interface Fruit {
   templateUrl: './product-change.component.html',
   styleUrls: ['./product-change.component.scss']
 })
-export class ProductChangeComponent implements AfterViewInit {
+export class ProductChangeComponent implements AfterViewInit, OnInit {
   displayedColumns: string[] = [
-    'active', 
-    'image', 
-    'identification', 
+    'active',   
     'variation',
     'originalPrice',
     'shippingPrice',
@@ -62,7 +61,6 @@ export class ProductChangeComponent implements AfterViewInit {
     'price',
     'promotional',
     'realProfit',
-    'stock',
   ];
   dataSource = new MatTableDataSource<ProductPrice>(ELEMENT_DATA);
 
@@ -87,10 +85,17 @@ export class ProductChangeComponent implements AfterViewInit {
   ];
 
 
-  constructor(private cdr: ChangeDetectorRef) {
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private screenService: ScreenService
+  ) {
     this.filteredFruits = this.fruitCtrl.valueChanges.pipe(
       startWith(null),
       map((fruit: string | null) => fruit ? this._filter(fruit) : this.allFruits.slice()));
+  }
+
+  ngOnInit(): void {
+    this.screenService.setScreenName('Editar Produto');
   }
 
   ngAfterViewInit() {
